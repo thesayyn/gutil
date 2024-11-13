@@ -171,7 +171,9 @@ TEST(ParseJsonAsProto, ParsesTestMessage) {
                                               "bool_field" : true
                                             })json"),
               IsOkAndHolds(EqualsProto(R"pb(
-                int_field: 42 string_field: "bye" bool_field: true
+                int_field: 42
+                string_field: "bye"
+                bool_field: true
               )pb")));
 }
 
@@ -192,7 +194,9 @@ TEST(ParseJsonAsProto, CanIgnoreUnknownFields) {
                                             })json",
                                             /*ignore_unknown_field=*/true),
               IsOkAndHolds(EqualsProto(R"pb(
-                int_field: 42 string_field: "bye" bool_field: true
+                int_field: 42
+                string_field: "bye"
+                bool_field: true
               )pb")));
 }
 
@@ -235,4 +239,3 @@ TEST(SaveProtoToFile, SavesProtoToFileTruncatesFileOnOverwrite) {
 
 }  // namespace
 }  // namespace gutil
-

@@ -17,6 +17,7 @@
 #include <sstream>
 
 #include "absl/status/status.h"
+#include "absl/status/statusor.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "gutil/status_matchers.h"
@@ -35,8 +36,9 @@ bool VersionToStringRoundTrips(const Version& version) {
 }
 
 bool StreamInsertionOperatorRoundTrips(const Version& version) {
-  absl::StatusOr<Version> roundtripped_version =
-      ParseVersion((std::ostringstream() << version).str());
+  std::ostringstream stream;
+  stream << version;
+  absl::StatusOr<Version> roundtripped_version = ParseVersion(stream.str());
   return roundtripped_version.ok() && *roundtripped_version == version;
 }
 

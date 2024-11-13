@@ -155,7 +155,7 @@ absl::StatusOr<std::string> GetOneOfFieldName(
     return gutil::NotFoundErrorBuilder()
            << "Oneof field \"" << oneof_name << "\" is not set";
   }
-  return field->name();
+  return std::string(field->name());
 }
 
 std::string PrintTextProto(const google::protobuf::Message &message) {
