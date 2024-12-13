@@ -16,7 +16,6 @@
 #include <utility>
 #include <vector>
 
-#include "absl/strings/str_replace.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include "gutil/proto_matchers.h"
@@ -213,4 +212,3 @@ TEST(HasOneofCaseTest, Description) {
 
 }  // namespace
 }  // namespace gutil
-

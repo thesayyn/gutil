@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# TODO: Scrub this file of all the dependencies that are no longer used.
 workspace(name = "com_github_google_gutil")
 
 # -- Load buildifier -----------------------------------------------------------
@@ -50,9 +51,9 @@ rules_foreign_cc_dependencies()
 
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
-#load("//:ondatra/binding_deps.bzl", "binding_deps")
+# load("//:ondatra/binding_deps.bzl", "binding_deps")
 
-#binding_deps()
+# binding_deps()
 
 go_rules_dependencies()
 
@@ -116,4 +117,3 @@ rules_pkg_dependencies()
 load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
 
 boost_deps()
-
