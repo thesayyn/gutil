@@ -12,13 +12,6 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 def gutil_deps():
     """Sets up 3rd party workspaces needed to build GUtil."""
-    if not native.existing_rule("com_github_bazelbuild_buildtools"):
-        http_archive(
-            name = "com_github_bazelbuild_buildtools",
-            sha256 = "e3bb0dc8b0274ea1aca75f1f8c0c835adbe589708ea89bf698069d0790701ea3",
-            strip_prefix = "buildtools-5.1.0",
-            url = "https://github.com/bazelbuild/buildtools/archive/refs/tags/5.1.0.tar.gz",
-        )
     if not native.existing_rule("com_github_grpc_grpc"):
         http_archive(
             name = "com_github_grpc_grpc",
