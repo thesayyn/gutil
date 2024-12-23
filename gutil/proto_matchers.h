@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef GUTIL_PROTO_MATCHERS_H
-#define GUTIL_PROTO_MATCHERS_H
+#ifndef GUTIL_PROTO_MATCHERS_H_
+#define GUTIL_PROTO_MATCHERS_H_
 
 #include <memory>
 #include <ostream>
@@ -254,4 +254,4 @@ inline InnerProtoMatcher Partially(InnerProtoMatcher inner_proto_matcher) {
 
 }  // namespace gutil
 
-#endif  // GUTIL_PROTO_MATCHERS_H
+#endif  // GUTIL_PROTO_MATCHERS_H_

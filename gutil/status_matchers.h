@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef GUTIL_STATUS_MATCHERS_H
-#define GUTIL_STATUS_MATCHERS_H
+#ifndef GUTIL_GUTIL_STATUS_MATCHERS_H_
+#define GUTIL_GUTIL_STATUS_MATCHERS_H_
 
 #include <ostream>
 #include <string>
@@ -143,4 +143,4 @@ IsOkAndHoldsMatcher<InnerMatcher> IsOkAndHolds(InnerMatcher&& inner_matcher) {
 
 }  // namespace gutil
 
-#endif  // GUTIL_STATUS_MATCHERS_H
+#endif  // GUTIL_GUTIL_STATUS_MATCHERS_H_

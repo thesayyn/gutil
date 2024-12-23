@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef GUTIL_COLLECTIONS_H
-#define GUTIL_COLLECTIONS_H
+#ifndef GUTIL_GUTIL_COLLECTIONS_H_
+#define GUTIL_GUTIL_COLLECTIONS_H_
 
 #include <string>
 #include <type_traits>
@@ -166,4 +166,4 @@ absl::Status InsertIfUnique(google::protobuf::Map<K, V> *map, K key,
 
 }  // namespace gutil
 
-#endif  // GUTIL_COLLECTIONS_H
+#endif  // GUTIL_GUTIL_COLLECTIONS_H_
