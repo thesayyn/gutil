@@ -1,4 +1,4 @@
-// Copyright 2021 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 #ifndef GUTIL_OVERLOADED_H_
 #define GUTIL_OVERLOADED_H_
 
+#include <utility>
+
 namespace gutil {
 
 // Useful in conjunction with {std,absl}::visit.
@@ -21,6 +23,9 @@ namespace gutil {
 template <class... Ts>
 struct Overload : Ts... {
   using Ts::operator()...;
+  // Before C++20, we need a constructor to allow for using parenthesis instead
+  // of curly braces.
+  explicit Overload(Ts... ts) : Ts(std::move(ts))... {}
 };
 template <class... Ts>
 Overload(Ts...) -> Overload<Ts...>;
