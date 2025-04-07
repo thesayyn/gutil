@@ -1,3 +1,7 @@
+# Use Bzlmod (`MODULE.bazel`) instead of `WORKSPACE.bazel`.
+common --enable_bzlmod
+common --noenable_workspace
+
 # Use C++17.
 build --cxxopt=-std=c++17
 build --host_cxxopt=-std=c++17
@@ -5,11 +9,6 @@ build --host_cxxopt=-std=c++17
 # Use Clang.
 build --action_env=CC=clang
 build --action_env=CXX=clang++
-
-# Use `WORKSPACE.bazel` instead of Bzlmod (`MODULE.bazel`).
-# TODO - migrate to Bzlmod.
-common --noenable_bzlmod
-common --enable_workspace
 
 # To allow loops with int and comparison against a .size() that's size_t.
 build --copt='-Wno-sign-compare' --host_copt='-Wno-sign-compare'
