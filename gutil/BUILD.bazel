@@ -183,6 +183,16 @@ cc_test(
     ],
 )
 
+cc_library(
+    name = "ordered_map",
+    hdrs = [
+        "ordered_map.h",
+    ],
+    deps = [
+        "@com_google_absl//absl/container:btree",
+    ],
+)
+
 cc_test(
     name = "collections_test",
     srcs = ["collections_test.cc"],
