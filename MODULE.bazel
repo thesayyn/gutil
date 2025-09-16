@@ -39,7 +39,7 @@ use_repo(switched_rules, "com_google_googleapis_imports")
 
 bazel_dep(
     name = "abseil-cpp",
-    version = "20240722.0.bcr.2",
+    version = "20250814.0",
     repo_name = "com_google_absl",
 )
 
