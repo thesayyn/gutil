@@ -22,9 +22,10 @@ def gutil_deps():
     if not native.existing_rule("com_google_absl"):
         http_archive(
             name = "com_google_absl",
-            url = "https://github.com/abseil/abseil-cpp/archive/20240116.2.tar.gz",
-            strip_prefix = "abseil-cpp-20240116.2",
-            sha256 = "733726b8c3a6d39a4120d7e45ea8b41a434cdacde401cba500f14236c49b39dc",
+            # Newest commit on main as of 2025-08-14.
+            url = "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.0.zip",
+            strip_prefix = "abseil-cpp-20250814.0",
+            sha256 = "b2bdcf6682d8cb53df365bcc5d6c318a22e55821d9978a10fdb61404c026daff",
         )
     if not native.existing_rule("com_google_googletest"):
         http_archive(
@@ -60,4 +61,11 @@ def gutil_deps():
             url = "https://github.com/googleapis/googleapis/archive/f405c718d60484124808adb7fb5963974d654bb4.zip",
             strip_prefix = "googleapis-f405c718d60484124808adb7fb5963974d654bb4",
             sha256 = "406b64643eede84ce3e0821a1d01f66eaf6254e79cb9c4f53be9054551935e79",
+        )
+    if not native.existing_rule("rules_cc"):
+        http_archive(
+            name = "rules_cc",
+            sha256 = "b8b918a85f9144c01f6cfe0f45e4f2838c7413961a8ff23bc0c6cdf8bb07a3b6",
+            strip_prefix = "rules_cc-0.1.5",
+            url = "https://github.com/bazelbuild/rules_cc/releases/download/0.1.5/rules_cc-0.1.5.tar.gz",
         )
