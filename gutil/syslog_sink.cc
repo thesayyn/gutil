@@ -12,6 +12,9 @@
 #include "absl/log/log_entry.h"
 #include "absl/log/log_sink_registry.h"
 
+#include <sys/syscall.h>
+#define gettid() syscall(SYS_gettid)
+
 namespace gutil {
 namespace {
 

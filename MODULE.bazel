@@ -22,21 +22,12 @@ module(
     repo_name = "com_github_google_gutil",
 )
 
+bazel_dep(name = "glog", version = "0.7.1")
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_license", version = "1.0.0")
-bazel_dep(
-    name = "googleapis",
-    version = "0.0.0-20240819-fe8ba054a",
-    repo_name = "com_google_googleapis",
-)
-
-switched_rules = use_extension("@com_google_googleapis//:extensions.bzl", "switched_rules")
-switched_rules.use_languages(
-    cc = True,
-    grpc = True,
-)
-use_repo(switched_rules, "com_google_googleapis_imports")
-
+bazel_dep(name = "googleapis", version = "0.0.0-20250604-de157ca3", repo_name = "com_google_googleapis")
+bazel_dep(name = "googleapis-cc", version = "1.0.0")
+bazel_dep(name = "googleapis-grpc-cc", version = "1.0.0")
 bazel_dep(
     name = "abseil-cpp",
     version = "20250814.0",
@@ -67,9 +58,24 @@ bazel_dep(
 
 bazel_dep(
     name = "grpc",
+    # When updating version check `multiple_version_override` below.
     version = "1.66.0.bcr.2",
     repo_name = "com_github_grpc_grpc",
 )
+
+multiple_version_override(
+    module_name = "googleapis",
+    versions = [
+        # This version used by the gutil.
+        "0.0.0-20250604-de157ca3",
+        # This version used by grpc which uses deprecated `switched_rules`
+        # extension. It can be removed once grpc migrated to newer version
+        # of googleapis. At this point the `multiple_version_override`
+        # should be removed as well.
+        "0.0.0-20240819-fe8ba054a",
+    ],
+)
+
 bazel_dep(
     name = "protobuf",
     version = "25.6",
